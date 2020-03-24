@@ -9,7 +9,7 @@ class RequestException(Exception):
     pass
 
 
-def listToString(s):
+def list_to_string(s):
     # initialize an empty string
     str1 = ""
 
@@ -38,8 +38,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
     print(args)
     try:
-        #v1 = ord(args.method)
-        #v2 = ord(args.endpoint)
         urlBase = 'https://jsonplaceholder.typicode.com'
         url = urlBase + args.endpoint
 
@@ -47,7 +45,7 @@ if __name__ == "__main__":
             r = requests.get(url)
             print(r.text)
         else:
-            payload = listToString(args.data)
+            payload = list_to_string(args.data)
             print(args.data)
             print(payload)
             r = requests.post(url, data=payload)
