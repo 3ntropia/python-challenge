@@ -9,6 +9,18 @@ class RequestException(Exception):
     pass
 
 
+def listToString(s):
+    # initialize an empty string
+    str1 = ""
+
+    # traverse in the string
+    for ele in s:
+        str1 += ele
+
+        # return string
+    return str1
+
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(prog='restful', description='Try an endpoint.')
@@ -28,15 +40,17 @@ if __name__ == "__main__":
     try:
         #v1 = ord(args.method)
         #v2 = ord(args.endpoint)
-        urlBase = 'https://jsonplaceholder.typicode.com/'
+        urlBase = 'https://jsonplaceholder.typicode.com'
+        url = urlBase + args.endpoint
 
         if 'get' == args.method:
-            r = requests.get(urlBase + args.endpoint)
+            r = requests.get(url)
+            print(r.text)
         else:
-            payload = args.data[1:-1]
+            payload = listToString(args.data)
             print(args.data)
             print(payload)
-            r = requests.post(urlBase + args.endpoint, data='{title: CIELO Rocks!, body: It really really rocks., userId: 1}')
+            r = requests.post(url, data=payload)
         status = r.status_code
         if status == 200:
             print('status:' + str(status))
@@ -64,4 +78,4 @@ if __name__ == "__main__":
     except RequestException:
         print("Something went wrong 2") """
 
-    # wild test
+
