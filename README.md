@@ -1,4 +1,4 @@
-# CIELO Python Challenge
+# Something Python Challenge
 
 Create a simple command-line REST client called `restful.py` able to `GET` and `POST` from [JSONPlaceholder](https://jsonplaceholder.typicode.com/).
 
