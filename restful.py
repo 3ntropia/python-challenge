@@ -57,7 +57,7 @@ if __name__ == "__main__":
         else:
             print('status:' + str(status))
             sys.exit(1)
-        print(r.text)
+
     except TypeError as e:
         print('Error: arguments must be characters')
         parser.print_help()
@@ -66,16 +66,4 @@ if __name__ == "__main__":
         print("RequestException: Something went wrong 2")
         parser.print_help()
         sys.exit(1)
-
-    """ try:
-        # https://jsonplaceholder.typicode.com/
-        r = requests.get('https://github.com/timeline.json')
-        print("URL:" + r.url)
-        status = r.status_code
-        if status > 200:
-            raise Exception("Something went wrong")
-        print(r.text)
-    except RequestException:
-        print("Something went wrong 2") """
-
 
